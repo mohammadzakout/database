@@ -16,7 +16,7 @@
 $host = 'localhost';
 $username = 'root';
 $password = '';
-$database = 'notes';
+$database = 'notes_db';
 
 
 $conn = mysqli_connect($host, $username, $password, $database);
@@ -25,27 +25,22 @@ if (!$conn) {
 }
 
 
-$sql = "create table notes (
-    id int(11) unsigned auto_increment primary key,
-    title varchar(255) not null,
-    content text not null,
-    created_at datetime default null,
-    header_image varchar(255) default null
-)";
+// $sql = "create table notes (
+//     id int(11) unsigned auto_increment primary key,
+//     title varchar(255) not null,
+//     content text not null,
+//     created_at datetime default null,
+//     header_image varchar(255) default null
+// )";
 
-if (mysqli_query($conn, $sql)) {
-    echo "Table notes created successfully";
+// if (mysqli_query($conn, $sql)) {
+//     echo "Table notes created successfully";
 
-} else {
-    echo "Error creating table: " . mysqli_error($conn);
-}
-
-// Close the database connection
+// } else {
+//     echo "Error creating table: " . mysqli_error($conn);
+// }
 
 
-// ...
-
-// Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'];
     $content = $_POST['content'];
